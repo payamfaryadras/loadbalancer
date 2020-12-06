@@ -1,0 +1,19 @@
+version: "3.4"
+
+services:
+  load:
+    build: ./nginx
+    container_name: loader
+    ports:
+      - 8080:80
+    depends_on:
+      - app
+      - app_v2
+
+  app:
+    build: ./app
+    container_name: app
+
+  app_v2:
+    build: ./app
+    container_name: app_v2
